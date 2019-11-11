@@ -20,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/lbl_name"
+            android:fontFamily="@font/titi_font"
             tools:layout_editor_absoluteX="28dp"
             tools:layout_editor_absoluteY="140dp" />
 
@@ -37,6 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/lbl_color"
+            android:fontFamily="@font/titi_font"
             tools:layout_editor_absoluteX="23dp"
             tools:layout_editor_absoluteY="324dp" />
 

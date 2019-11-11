@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,36 +14,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <android.support.design.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="340dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/titi_font"
+        android:text="@string/allEvents"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/calendarView"
+        tools:text="@string/allEvents" />
 
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="410dp"
+        android:layout_height="325dp"
+        android:layout_marginTop="400dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
-        <TextView
-            android:id="@+id/all_event"
-            android:layout_width="350dp"
-            android:layout_height="66dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="375dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            tools:text="@string/allEvents" />
 
         <ListView
             android:id="@+id/listView_events"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="385dp"
+            android:layout_width="405dp"
+            android:layout_height="match_parent"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:paddingBottom="16dp"></ListView>
+            android:paddingBottom="16dp"
+            app:layout_anchorGravity="center"
+            android:divider="@null"
+            android:dividerHeight="0dp"></ListView>
 
 
     </android.support.design.widget.CoordinatorLayout>
 
 
-</android.support.constraint.ConstraintLayout >
+</RelativeLayout >

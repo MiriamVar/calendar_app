@@ -3,6 +3,7 @@ package com.example.calendar_app;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -20,6 +21,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
+import java.text.DateFormatSymbols;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -32,6 +35,8 @@ public class CalendarActivity extends AppCompatActivity implements AddEventActiv
     private ListView myEvents;
     private MyAdapter myAdapter;
     private String selected_date;
+    private Parcelable state = null;
+    private static final String LIST_EVENTS= "listEvents";
 
 
     @Override
@@ -44,7 +49,8 @@ public class CalendarActivity extends AppCompatActivity implements AddEventActiv
         myClanedar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView CalendarView, int year, int month, int dayOfMonth) {
-                selected_date = year + "/" + month + "/"+ dayOfMonth ;
+                String monthText = getMonth(month);
+                selected_date = dayOfMonth + " " + monthText;
                 showEditDialog();
             }
         });
@@ -52,6 +58,7 @@ public class CalendarActivity extends AppCompatActivity implements AddEventActiv
 
         myAdapter = new MyAdapter();
         myEvents.setAdapter(myAdapter);
+
      }
 
     private void showEditDialog() {
@@ -67,7 +74,7 @@ public class CalendarActivity extends AppCompatActivity implements AddEventActiv
         Event event1 = new Event(inputText,selected_date,inputText2);
         this.events.add(event1);
         System.out.println(event1.name);
-        myAdapter.notifyDataSetChanged();
+//        myAdapter.notifyDataSetChanged();
     }
 
     public class MyAdapter extends BaseAdapter{
@@ -108,6 +115,24 @@ public class CalendarActivity extends AppCompatActivity implements AddEventActiv
             return convertView;
         }
     }
+
+    public String getMonth(int month) {
+        return new DateFormatSymbols().getMonths()[month];
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable(LIST_EVENTS,(Serializable) events);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        events = (List<Event>) savedInstanceState.getSerializable(LIST_EVENTS);
+    }
+
+
 
 }
 
