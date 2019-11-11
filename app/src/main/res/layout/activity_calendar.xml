@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.applandeo.materialcalendarview.CalendarView
+    <CalendarView
         android:id="@+id/calendarView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="418dp"
+        android:layout_height="331dp"
         android:background="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,16 +23,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
+
+        <TextView
+            android:id="@+id/all_event"
+            android:layout_width="350dp"
+            android:layout_height="66dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="375dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            tools:text="@string/allEvents" />
+
+        <ListView
+            android:id="@+id/listView_events"
             android:layout_width="wrap_content"
-            android:layout_height="70dp"
-            android:layout_gravity="right|center"
-            android:layout_margin="16dp"
-            android:contentDescription="@string/submit"
-            app:srcCompat="@drawable/ic_launcher_background"
-            tools:ignore="VectorDrawableCompat" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="385dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="16dp"></ListView>
+
 
     </android.support.design.widget.CoordinatorLayout>
+
 
 </android.support.constraint.ConstraintLayout >

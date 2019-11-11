@@ -2,5 +2,8 @@
     <string name="app_name">My Day</string>
     <string name="btn_name">Add event to your calendar</string>
     <string name="text_name">Date</string>
+    <string name="lbl_name">Name</string>
+    <string name="lbl_color">Notes</string>
     <string name="submit">submit</string>
+    <string name="allEvents">Your events</string>
 </resources>
